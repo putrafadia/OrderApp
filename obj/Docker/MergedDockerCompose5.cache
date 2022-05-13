@@ -1,0 +1,104 @@
+services:
+  orderql:
+    build:
+      context: E:\belajar\bootcamp\final\OrderApp
+      dockerfile: OrderQL/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: OrderQL
+      target: base
+    container_name: OrderQL
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+    image: orderql:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/net6.0/OrderQL.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - target: 80
+    - target: 443
+    tty: true
+    volumes:
+    - E:\belajar\bootcamp\final\OrderApp\OrderQL:/app:rw
+    - C:\Users\ahmad saputra\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\ahmad saputra\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\ahmad saputra\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\ahmad saputra\.nuget\packages:/root/.nuget/packages:ro
+    - E:\belajar\bootcamp\final\OrderApp:/src:rw
+  productql:
+    build:
+      context: E:\belajar\bootcamp\final\OrderApp
+      dockerfile: ProductQL/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: ProductQL
+      target: base
+    container_name: ProductQL
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+    image: productql:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/net6.0/ProductQL.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - target: 80
+    - target: 443
+    tty: true
+    volumes:
+    - E:\belajar\bootcamp\final\OrderApp\ProductQL:/app:rw
+    - C:\Users\ahmad saputra\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\ahmad saputra\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\ahmad saputra\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\ahmad saputra\.nuget\packages:/root/.nuget/packages:ro
+    - E:\belajar\bootcamp\final\OrderApp:/src:rw
+  userql:
+    build:
+      context: E:\belajar\bootcamp\final\OrderApp
+      dockerfile: UserQL/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: UserQL
+      target: base
+    container_name: UserQL
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+    image: userql:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/net6.0/UserQL.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - target: 80
+    - target: 443
+    tty: true
+    volumes:
+    - E:\belajar\bootcamp\final\OrderApp\UserQL:/app:rw
+    - C:\Users\ahmad saputra\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\ahmad saputra\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\ahmad saputra\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\ahmad saputra\.nuget\packages:/root/.nuget/packages:ro
+    - E:\belajar\bootcamp\final\OrderApp:/src:rw
+version: '3.4'

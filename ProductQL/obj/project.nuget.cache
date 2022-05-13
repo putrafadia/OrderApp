@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "L0y4kBh41kM+hKIn0lfDsccpULRNVIuM4b7Nrvaz66ttJ2PPbutZ/oIQFGNiUNu+hgXI/jTD/HIvouEWzoPqQA==",
+  "dgSpecHash": "6aIo70VtC5+1+ooOig/eBkltYkq74mRAFouHx+ooirmy/ezboFskd2G3IF73MxB48WfRM7XpySxrAml0459RtA==",
   "success": true,
   "projectFilePath": "E:\\belajar\\bootcamp\\final\\OrderApp\\ProductQL\\ProductQL.csproj",
   "expectedPackageFiles": [
@@ -59,6 +59,7 @@
     "C:\\Users\\ahmad saputra\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.10.0\\microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
     "C:\\Users\\ahmad saputra\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.17.0\\microsoft.identitymodel.tokens.6.17.0.nupkg.sha512",
     "C:\\Users\\ahmad saputra\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\ahmad saputra\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.14.0\\microsoft.visualstudio.azure.containers.tools.targets.1.14.0.nupkg.sha512",
     "C:\\Users\\ahmad saputra\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\ahmad saputra\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\ahmad saputra\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",

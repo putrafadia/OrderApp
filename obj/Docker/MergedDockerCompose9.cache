@@ -1,0 +1,83 @@
+networks:
+  app-tier:
+    driver: bridge
+services:
+  kafka:
+    depends_on:
+      zookeeper:
+        condition: service_started
+    environment:
+      ALLOW_PLAINTEXT_LISTENER: "yes"
+      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092
+      KAFKA_CFG_ZOOKEEPER_CONNECT: zookeeper:2181
+    image: docker.io/bitnami/kafka
+    links:
+    - zookeeper
+    networks:
+      app-tier: {}
+    ports:
+    - published: 9092
+      target: 9092
+    volumes:
+    - E:\belajar\bootcamp\final\OrderApp\kafka_data:/bitnami:rw
+  orderprocessor:
+    build:
+      context: E:\belajar\bootcamp\final\OrderApp
+      dockerfile: OrderProcessor/Dockerfile
+    image: orderprocessor
+  orderql:
+    build:
+      context: E:\belajar\bootcamp\final\OrderApp
+      dockerfile: OrderQL/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: orderql
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\ahmad saputra\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+  productql:
+    build:
+      context: E:\belajar\bootcamp\final\OrderApp
+      dockerfile: ProductQL/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: productql
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\ahmad saputra\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+  userql:
+    build:
+      context: E:\belajar\bootcamp\final\OrderApp
+      dockerfile: UserQL/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: userql
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\ahmad saputra\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+  zookeeper:
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: "yes"
+    image: docker.io/bitnami/zookeeper
+    networks:
+      app-tier: {}
+    ports:
+    - published: 2181
+      target: 2181
+    volumes:
+    - E:\belajar\bootcamp\final\OrderApp\zookeeper_data:/bitnami:rw
+version: '3.4'
+volumes:
+  kafka_data:
+    driver: local
+  zookeeper_data:
+    driver: local

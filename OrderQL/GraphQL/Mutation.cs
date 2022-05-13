@@ -18,7 +18,7 @@ namespace OrderQL.GraphQL
             var key = "order-" + dts;
             var val = JsonConvert.SerializeObject(input);
 
-            var result = await KafkaHelper.SendMessage(settings.Value, "aaporder", key, val);
+            var result = await KafkaHelper.SendMessage(settings.Value, "apporder", key, val);
 
             StatusOrder resp = new StatusOrder
             {
